@@ -6,7 +6,7 @@ import {
 } from "../src/app/services/filter";
 import ProductCard from "../src/app/components/ProductCard";
 import SearchFilterBar from "../src/app/components/SearchFilterBar";
-import { PageContainer, PageTitle, Grid } from "./styles/index.styles";
+import { PageContainer, GlobalStyles, Grid } from "./styles/index.styles";
 
 export default function Home() {
   const [products, setProducts] = useState([]);
@@ -39,28 +39,31 @@ export default function Home() {
   };
 
   return (
-    <PageContainer>
-      <SearchFilterBar
-        categories={categories}
-        onSearch={handleSearch}
-        onFilter={handleFilter}
-      />
-      <Grid>
-        {filteredProducts.length > 0 ? (
-          filteredProducts.map((product) => (
-            <ProductCard
-              key={product.id}
-              image={product.image}
-              title={product.title}
-              price={product.price}
-              description={product.description}
-              category={product.category}
-            />
-          ))
-        ) : (
-          <p>Carregando produtos...</p>
-        )}
-      </Grid>
-    </PageContainer>
+    <>
+      <GlobalStyles />
+      <PageContainer>
+        <SearchFilterBar
+          categories={categories}
+          onSearch={handleSearch}
+          onFilter={handleFilter}
+        />
+        <Grid>
+          {filteredProducts.length > 0 ? (
+            filteredProducts.map((product) => (
+              <ProductCard
+                key={product.id}
+                image={product.image}
+                title={product.title}
+                price={product.price}
+                description={product.description}
+                category={product.category}
+              />
+            ))
+          ) : (
+            <p>Carregando produtos...</p>
+          )}
+        </Grid>
+      </PageContainer>
+    </>
   );
 }

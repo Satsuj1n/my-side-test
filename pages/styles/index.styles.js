@@ -4,12 +4,14 @@ import { createGlobalStyle } from "styled-components";
 export const GlobalStyles = createGlobalStyle`
   body {
     font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #f7f7fd;
+    margin: 0;
+    padding: 0;
   }
 `;
 
 export const PageContainer = styled.div`
   padding: 40px;
-  color: #f7f7fd;
 `;
 
 export const Grid = styled.div`
