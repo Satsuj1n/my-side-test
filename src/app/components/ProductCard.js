@@ -12,7 +12,9 @@ const ProductCard = ({ image, title, price, description, category }) => {
         <ProductTitle>
           {title.length > 45 ? `${title.substring(0, 45)}...` : title}
         </ProductTitle>
-        <ProductCategory>Category: {category}</ProductCategory>
+        <ProductCategory>
+          <strong>Category:</strong> {category}
+        </ProductCategory>
         <ProductDescription>
           {description.length > 100
             ? `${description.substring(0, 100)}...`
@@ -79,6 +81,8 @@ const ProductTitle = styled.div`
 const ProductCategory = styled.div`
   font-size: 0.875rem;
   color: #6b7280;
+  font-weight: bold;
+  margin-bottom: 10px;
 `;
 
 const ProductDescription = styled.div`
