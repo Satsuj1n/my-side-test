@@ -5,7 +5,7 @@ const ProductCard = ({ image, title, price, description, category }) => {
   return (
     <Card>
       <CardImageWrapper>
-        <CardImage src={image} alt={title} />
+        <CardImage src={image} alt={title} isSmallImage={imageIsSmall(image)} />
       </CardImageWrapper>
       <CardBody>
         <ProductPrice>${price.toLocaleString()}</ProductPrice>
@@ -24,6 +24,13 @@ const ProductCard = ({ image, title, price, description, category }) => {
       </CardBody>
     </Card>
   );
+};
+
+// Verificar se a imagem é menor que o padrão
+const imageIsSmall = (imageSrc) => {
+  const img = new Image();
+  img.src = imageSrc;
+  return img.width < 200 || img.height < 200; // Ajuste os valores conforme necessário
 };
 
 // Styled Components
@@ -52,6 +59,12 @@ const CardImage = styled.img`
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
+  ${(props) =>
+    props.isSmallImage &&
+    `
+      width: 200px;
+      height: 200px;
+    `}
 `;
 
 const CardBody = styled.div`
