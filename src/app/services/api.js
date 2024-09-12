@@ -1,5 +1,3 @@
-// src/services/api.js
-
 const API_URL = "https://fakestoreapi.in/api";
 
 // Função para obter todos os produtos

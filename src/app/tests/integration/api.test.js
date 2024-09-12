@@ -51,6 +51,7 @@ describe("Requisições API", () => {
     });
 
     const response = await getAllProducts();
+    console.log("Retorno da API para todos os produtos: ", response);
 
     expect(response).toHaveProperty("status", "SUCCESS");
     expect(response).toHaveProperty("message");
@@ -85,6 +86,7 @@ describe("Requisições API", () => {
     });
 
     const response = await getProductById(2);
+    console.log("Retorno da API para produto com ID 2: ", response);
 
     expect(response).toHaveProperty("status", "SUCCESS");
     expect(response).toHaveProperty("message");
@@ -133,6 +135,10 @@ describe("Requisições API", () => {
     });
 
     const response = await getProductByCategory("mobile");
+    console.log(
+      "Retorno da API para produtos da categoria 'mobile': ",
+      response
+    );
 
     expect(response).toHaveProperty("status", "SUCCESS");
     expect(response).toHaveProperty("message");

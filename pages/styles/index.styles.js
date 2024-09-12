@@ -21,3 +21,29 @@ export const Grid = styled.div`
   padding: 20px;
   grid-row-gap: 60px;
 `;
+
+export const Pagination = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+
+  button {
+    background-color: #7065f0;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    margin: 0 5px;
+    border-radius: 9px;
+    cursor: pointer;
+    font-family: "Plus Jakarta Sans", sans-serif;
+
+    &:hover {
+      background-color: #5847c7;
+    }
+
+    &:focus {
+      outline: none;
+      background-color: #4836a3;
+    }
+  }
+`;

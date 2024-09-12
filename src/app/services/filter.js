@@ -6,7 +6,7 @@ export const searchProductsByName = (products, searchTerm) => {
 
 export const filterProductsByCategory = (products, category) => {
   if (category === "") {
-    return products; // Retorna todos se nenhuma categoria for selecionada
+    return products;
   }
   return products.filter((product) => product.category === category);
 };
