@@ -65,6 +65,7 @@ const ProductPrice = styled.div`
   font-size: 1.25rem;
   color: #7065f0;
   font-weight: 800;
+  font-family: "Plus Jakarta Sans", sans-serif;
 `;
 
 const ProductTitle = styled.div`
@@ -76,6 +77,7 @@ const ProductTitle = styled.div`
   max-height: 2.8em;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-family: "Plus Jakarta Sans", sans-serif;
 `;
 
 const ProductCategory = styled.div`
@@ -83,6 +85,7 @@ const ProductCategory = styled.div`
   color: #6b7280;
   font-weight: bold;
   margin-bottom: 10px;
+  font-family: "Plus Jakarta Sans", sans-serif;
 `;
 
 const ProductDescription = styled.div`
@@ -92,6 +95,7 @@ const ProductDescription = styled.div`
   max-height: 2.8em;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-family: "Plus Jakarta Sans", sans-serif;
 `;
 
 const AddToCartButton = styled.button`
