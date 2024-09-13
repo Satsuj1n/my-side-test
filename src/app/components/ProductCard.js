@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
-import Link from "next/link"; // Importar Link do Next.js
+import Link from "next/link";
+import { CartContext } from "../services/cartContext";
 
 const ProductCard = ({ id, image, title, price, description, category }) => {
+  const { addToCart } = useContext(CartContext);
+
+  const handleAddToCart = () => {
+    addToCart({ id, title, price, image });
+  };
   return (
     <Card>
       {/* Envolver a parte clicável do card no Link */}
@@ -33,9 +39,7 @@ const ProductCard = ({ id, image, title, price, description, category }) => {
       </StyledLink>
 
       {/* Botão de "Add to cart" fora do link */}
-      <AddToCartButton onClick={() => handleAddToCart(id)}>
-        Add to cart
-      </AddToCartButton>
+      <AddToCartButton onClick={handleAddToCart}>Add to cart</AddToCartButton>
     </Card>
   );
 };
@@ -64,12 +68,14 @@ const Card = styled.div`
 const StyledLink = styled(Link)`
   text-decoration: none; /* Remove a sublinha */
   color: inherit; /* Mantém a cor herdada */
-  
+
   &:hover {
     text-decoration: none; /* Garante que não aparece ao passar o mouse */
   }
 
-  h2, p, span {
+  h2,
+  p,
+  span {
     text-decoration: none; /* Remove qualquer sublinha nos elementos de texto */
   }
 `;

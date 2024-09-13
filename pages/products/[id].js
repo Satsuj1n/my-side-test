@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import {
   getProductByCategory,
   getProductById,
@@ -28,12 +28,14 @@ import {
   Wallpaper,
 } from "../../styles/products.styles.js";
 import { DivCarregando } from "../../styles/index.styles.js";
-
+import { CartContext } from "../../src/app/services/cartContext"; 
 export default function ProductDetails() {
   const router = useRouter();
   const { id } = router.query;
   const [product, setProduct] = useState(null);
-  const [relatedProducts, setRelatedProducts] = useState([]); // Inicializado como array vazio
+  const [relatedProducts, setRelatedProducts] = useState([]);
+  
+  const { addToCart } = useContext(CartContext); // Usa o contexto do carrinho
 
   useEffect(() => {
     if (id) {
@@ -47,7 +49,7 @@ export default function ProductDetails() {
             (res.products || []).filter(
               (relatedProduct) => relatedProduct.id !== parseInt(id)
             )
-          ); // Filtrar o produto atual da lista de relacionados
+          );
         });
       }
     }
@@ -83,7 +85,9 @@ export default function ProductDetails() {
               </InfoGroupWrapper>
               <CategoryPriceWrapper>
                 <Price>Price: ${product.price}</Price>
-                <AddToCartButton>Add to Cart</AddToCartButton>
+                <AddToCartButton onClick={() => addToCart(product)}>
+                  Add to Cart
+                </AddToCartButton>
               </CategoryPriceWrapper>
             </InfoCard>
           </InfoWrapper>
