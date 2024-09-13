@@ -10,6 +10,13 @@ export const GlobalStyles = createGlobalStyle`
   }
 `;
 
+export const DivCarregando = styled.div`
+  font-size: 1rem;
+  font-weight: bold;
+  color: #7065f0;
+  font-family: "Plus Jakarta Sans", sans-serif;
+`;
+
 export const PageContainer = styled.div`
   padding: 40px;
 `;
