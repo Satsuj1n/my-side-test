@@ -21,6 +21,17 @@ export const DivCarregando = styled.div`
   height: 100vh;
 `;
 
+export const NoResultsMessage = styled.div`
+  font-size: 1rem;
+  font-weight: bold;
+  color: #7065f0;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: top;
+  height: 100vh;
+`;
+
 export const PageContainer = styled.div`
   padding: 40px;
 `;

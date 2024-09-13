@@ -12,6 +12,7 @@ import {
   Grid,
   Pagination,
   DivCarregando,
+  NoResultsMessage, 
 } from "../styles/index.styles.js";
 
 export default function Home() {
@@ -21,7 +22,7 @@ export default function Home() {
   const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(true);
   const [activeCategory, setActiveCategory] = useState("");
-  const [searchTerm, setSearchTerm] = useState(""); 
+  const [searchTerm, setSearchTerm] = useState("");
   const productsPerPage = 24;
 
   useEffect(() => {
@@ -61,13 +62,13 @@ export default function Home() {
   };
 
   const handleSearch = (searchTerm) => {
-    setSearchTerm(searchTerm); 
+    setSearchTerm(searchTerm);
     filterAndSearch(searchTerm, activeCategory);
   };
 
   const handleFilter = (category) => {
     setActiveCategory(category);
-    filterAndSearch(searchTerm, category); 
+    filterAndSearch(searchTerm, category);
   };
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
@@ -92,19 +93,25 @@ export default function Home() {
           onSearch={handleSearch}
           onFilter={handleFilter}
         />
-        <Grid>
-          {currentProducts.map((product) => (
-            <ProductCard
-              key={product.id}
-              id={product.id}
-              image={product.image}
-              title={product.title}
-              price={product.price}
-              description={product.description}
-              category={product.category}
-            />
-          ))}
-        </Grid>
+        {currentProducts.length > 0 ? (
+          <Grid>
+            {currentProducts.map((product) => (
+              <ProductCard
+                key={product.id}
+                id={product.id}
+                image={product.image}
+                title={product.title}
+                price={product.price}
+                description={product.description}
+                category={product.category}
+              />
+            ))}
+          </Grid>
+        ) : (
+          <NoResultsMessage>
+            Nenhum produto encontrado para a pesquisa.
+          </NoResultsMessage>
+        )}
         <Pagination>
           {Array.from(
             { length: Math.ceil(filteredProducts.length / productsPerPage) },
