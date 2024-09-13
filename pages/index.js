@@ -21,7 +21,7 @@ export default function Home() {
   const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(true);
   const [activeCategory, setActiveCategory] = useState("");
-  const [searchTerm, setSearchTerm] = useState(""); // Adicionando searchTerm aqui
+  const [searchTerm, setSearchTerm] = useState(""); 
   const productsPerPage = 24;
 
   useEffect(() => {
@@ -61,13 +61,13 @@ export default function Home() {
   };
 
   const handleSearch = (searchTerm) => {
-    setSearchTerm(searchTerm); // Atualize o searchTerm
+    setSearchTerm(searchTerm); 
     filterAndSearch(searchTerm, activeCategory);
   };
 
   const handleFilter = (category) => {
     setActiveCategory(category);
-    filterAndSearch(searchTerm, category); // Agora searchTerm está definido
+    filterAndSearch(searchTerm, category); 
   };
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
