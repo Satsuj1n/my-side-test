@@ -3,10 +3,9 @@ import styled from "styled-components";
 
 const SearchFilterBar = ({ categories, onSearch, onFilter }) => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("All Categories");
   const [debouncedSearchTerm, setDebouncedSearchTerm] = useState(searchTerm);
 
-  // Implementing a search delay (1 second)
   useEffect(() => {
     const handler = setTimeout(() => {
       onSearch(debouncedSearchTerm);
@@ -43,7 +42,7 @@ const SearchFilterBar = ({ categories, onSearch, onFilter }) => {
           value={selectedCategory}
           onChange={handleCategoryChange}
         >
-          <option value="">All Categories</option>
+          <option value="All Categories">All Categories</option>
           {categories.map((category) => (
             <option key={category} value={category}>
               {category}
@@ -148,3 +147,4 @@ const SearchButton = styled.button`
 `;
 
 export default SearchFilterBar;
+

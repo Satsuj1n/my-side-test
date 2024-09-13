@@ -34,7 +34,7 @@ const Cart = () => {
   return (
     <CartContainer>
       <BackButton>
-        <Link href="/">🠔 Voltar para produtos</Link>
+        <Link href="/">🠔 Back to products</Link>
       </BackButton>
       <h1>Shopping Cart</h1>
       {cartSummary.length === 0 ? (

@@ -20,6 +20,8 @@ export default function Home() {
   const [categories, setCategories] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(true);
+  const [activeCategory, setActiveCategory] = useState("");
+  const [searchTerm, setSearchTerm] = useState(""); // Adicionando searchTerm aqui
   const productsPerPage = 24;
 
   useEffect(() => {
@@ -43,32 +45,29 @@ export default function Home() {
     fetchProducts();
   }, []);
 
-  // Cálculo para obter a página atual de produtos
-  const indexOfLastProduct = currentPage * productsPerPage;
-  const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-  const currentProducts = filteredProducts.slice(
-    indexOfFirstProduct,
-    indexOfLastProduct
-  );
+  const filterAndSearch = (searchTerm, category) => {
+    let filtered = products;
 
-  const handleSearch = (searchTerm) => {
-    if (searchTerm === "") {
-      setFilteredProducts(products);
-    } else {
-      const filtered = searchProductsByName(products, searchTerm);
-      setFilteredProducts(filtered);
+    if (category && category !== "All Categories") {
+      filtered = filterProductsByCategory(products, category);
     }
+
+    if (searchTerm) {
+      filtered = searchProductsByName(filtered, searchTerm);
+    }
+
+    setFilteredProducts(filtered);
     setCurrentPage(1);
   };
 
+  const handleSearch = (searchTerm) => {
+    setSearchTerm(searchTerm); // Atualize o searchTerm
+    filterAndSearch(searchTerm, activeCategory);
+  };
+
   const handleFilter = (category) => {
-    if (category === "All Categories") {
-      setFilteredProducts(products);
-    } else {
-      const filtered = filterProductsByCategory(products, category);
-      setFilteredProducts(filtered);
-    }
-    setCurrentPage(1);
+    setActiveCategory(category);
+    filterAndSearch(searchTerm, category); // Agora searchTerm está definido
   };
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
@@ -76,6 +75,13 @@ export default function Home() {
   if (loading) {
     return <DivCarregando>Carregando Produtos...</DivCarregando>;
   }
+
+  const indexOfLastProduct = currentPage * productsPerPage;
+  const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+  const currentProducts = filteredProducts.slice(
+    indexOfFirstProduct,
+    indexOfLastProduct
+  );
 
   return (
     <>

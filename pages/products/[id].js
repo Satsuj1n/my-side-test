@@ -63,7 +63,7 @@ export default function ProductDetails() {
     <Wallpaper>
       <PageContainer>
         <BackButton>
-          <Link href="/">🠔 Voltar para produtos</Link>
+          <Link href="/">🠔 Back to products</Link>
         </BackButton>
         <ProductWrapper>
           <ImageContainer>
