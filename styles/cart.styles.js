@@ -40,6 +40,7 @@ export const CartImage = styled.img`
 export const CartDetails = styled.div`
   display: flex;
   font-weight: 600;
+  color: #6b7280;
   flex-direction: column;
   justify-content: center;
   font-family: "Plus Jakarta Sans", sans-serif;
@@ -65,6 +66,6 @@ export const TotalPrice = styled.h2`
 export const QuantityCounter = styled.p`
   font-size: 1rem;
   font-weight: bold;
-  color: #444;
+  color: #878b94;
   margin-top: 10px;
 `;

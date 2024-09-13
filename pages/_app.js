@@ -15,6 +15,7 @@ function MyApp({ Component, pageProps }) {
             href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap"
             rel="stylesheet"
           />
+          <meta property="og:image" content="https://i.imgur.com/Ckemqk3.png" />
         </Head>
         <GlobalStyles />
         <Navbar />
