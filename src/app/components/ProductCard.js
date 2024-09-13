@@ -1,27 +1,41 @@
 import React from "react";
 import styled from "styled-components";
+import Link from "next/link"; // Importar Link do Next.js
 
-const ProductCard = ({ image, title, price, description, category }) => {
+const ProductCard = ({ id, image, title, price, description, category }) => {
   return (
     <Card>
-      <CardImageWrapper>
-        <CardImage src={image} alt={title} isSmallImage={imageIsSmall(image)} />
-      </CardImageWrapper>
-      <CardBody>
-        <ProductPrice>${price.toLocaleString()}</ProductPrice>
-        <ProductTitle>
-          {title.length > 45 ? `${title.substring(0, 45)}...` : title}
-        </ProductTitle>
-        <ProductCategory>
-          <strong>Category:</strong> {category}
-        </ProductCategory>
-        <ProductDescription>
-          {description.length > 100
-            ? `${description.substring(0, 100)}...`
-            : description}
-        </ProductDescription>
-        <AddToCartButton>Add to cart</AddToCartButton>
-      </CardBody>
+      {/* Envolver a parte clicável do card no Link */}
+      <StyledLink href={`/products/${id}`} passHref>
+        <CardClickableArea>
+          <CardImageWrapper>
+            <CardImage
+              src={image}
+              alt={title}
+              isSmallImage={imageIsSmall(image)}
+            />
+          </CardImageWrapper>
+          <CardBody>
+            <ProductPrice>${price.toLocaleString()}</ProductPrice>
+            <ProductTitle>
+              {title.length > 45 ? `${title.substring(0, 45)}...` : title}
+            </ProductTitle>
+            <ProductCategory>
+              <strong>Category:</strong> {category}
+            </ProductCategory>
+            <ProductDescription>
+              {description.length > 100
+                ? `${description.substring(0, 100)}...`
+                : description}
+            </ProductDescription>
+          </CardBody>
+        </CardClickableArea>
+      </StyledLink>
+
+      {/* Botão de "Add to cart" fora do link */}
+      <AddToCartButton onClick={() => handleAddToCart(id)}>
+        Add to cart
+      </AddToCartButton>
     </Card>
   );
 };
@@ -45,6 +59,26 @@ const Card = styled.div`
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
+`;
+
+const StyledLink = styled(Link)`
+  text-decoration: none; /* Remove a sublinha */
+  color: inherit; /* Mantém a cor herdada */
+  
+  &:hover {
+    text-decoration: none; /* Garante que não aparece ao passar o mouse */
+  }
+
+  h2, p, span {
+    text-decoration: none; /* Remove qualquer sublinha nos elementos de texto */
+  }
+`;
+
+const CardClickableArea = styled.a`
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  display: block;
 `;
 
 const CardImageWrapper = styled.div`

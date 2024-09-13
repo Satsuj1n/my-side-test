@@ -11,7 +11,7 @@ import {
   GlobalStyles,
   Grid,
   Pagination,
-} from "./styles/index.styles";
+} from "../styles/index.styles.js";
 
 export default function Home() {
   const [products, setProducts] = useState([]);
@@ -71,6 +71,7 @@ export default function Home() {
             currentProducts.map((product) => (
               <ProductCard
                 key={product.id}
+                id={product.id}
                 image={product.image}
                 title={product.title}
                 price={product.price}
