@@ -27,6 +27,7 @@ import {
   InfoGroupWrapper,
   Wallpaper,
 } from "../../styles/products.styles.js";
+import { DivCarregando } from "../../styles/index.styles.js";
 
 export default function ProductDetails() {
   const router = useRouter();
@@ -53,7 +54,7 @@ export default function ProductDetails() {
   }, [id, product?.category]);
 
   if (!product) {
-    return <div>Carregando...</div>;
+    return <DivCarregando>Carregando...</DivCarregando>;
   }
 
   return (

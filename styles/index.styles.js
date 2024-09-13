@@ -15,6 +15,10 @@ export const DivCarregando = styled.div`
   font-weight: bold;
   color: #7065f0;
   font-family: "Plus Jakarta Sans", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 `;
 
 export const PageContainer = styled.div`

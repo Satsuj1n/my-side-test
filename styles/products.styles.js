@@ -159,3 +159,4 @@ export const RelatedTitle = styled.div`
   font-family: "Plus Jakarta Sans", sans-serif;
   margin-left: 10px;
 `;
+
