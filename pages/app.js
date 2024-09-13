@@ -1,3 +1,4 @@
+import React from "react";
 import Head from "next/head";
 import "../styles/index.styles.js";
 import { GlobalStyles } from "../styles/index.styles.js";
