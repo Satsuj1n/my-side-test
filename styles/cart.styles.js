@@ -69,3 +69,18 @@ export const QuantityCounter = styled.p`
   color: #878b94;
   margin-top: 10px;
 `;
+
+export const RemoveButton = styled.button`
+  flex: 1;
+  text-align: right;
+  margin-right: 15px;
+  background-color: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: #ff6b6b;
+  cursor: pointer;
+
+  &:hover {
+    color: #ff4b4b;
+  }
+`;

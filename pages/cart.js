@@ -10,12 +10,12 @@ import {
   CartTitle,
   TotalPrice,
   QuantityCounter,
+  RemoveButton,
 } from "../styles/cart.styles";
 
 const Cart = () => {
-  const { cartItems } = useContext(CartContext);
+  const { cartItems, removeItemFromCart } = useContext(CartContext); 
 
-  // Create an object to track quantity of each item
   const cartSummary = cartItems.reduce((acc, product) => {
     const existingProduct = acc.find((item) => item.id === product.id);
     if (existingProduct) {
@@ -53,6 +53,9 @@ const Cart = () => {
                 <p>Price: ${item.price.toLocaleString()}</p>
                 <QuantityCounter>Quantity: {item.quantity}</QuantityCounter>
               </CartDetails>
+              <RemoveButton onClick={() => removeItemFromCart(item.id)}>
+                &times;
+              </RemoveButton>
             </CartItem>
           ))}
           <TotalPrice>Total Price: ${totalPrice.toLocaleString()}</TotalPrice>
