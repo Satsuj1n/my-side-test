@@ -1,10 +1,18 @@
 import styled from "styled-components";
 
+export const Wallpaper = styled.div`
+  margin: 0;
+  background-color: #f7f7fd;
+  min-height: 100vh;
+  min-width: 100vw;
+`;
+
 export const PageContainer = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
   background-color: #f7f7fd;
+  min-height: 100vh;
 `;
 
 export const BackButton = styled.div`
@@ -133,4 +141,21 @@ export const Color = styled.p`
   font-size: 1rem;
   font-weight: bold;
   font-family: "Plus Jakarta Sans", sans-serif;
+`;
+
+export const RelatedProductGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  grid-row-gap: 60px;
+`;
+
+export const RelatedTitle = styled.div`
+  margin-top: 30px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #7065f0;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  margin-left: 10px;
 `;
