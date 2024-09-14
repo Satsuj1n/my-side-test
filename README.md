@@ -1,66 +1,76 @@
-# MySide Test - Aplicação de E-commerce
+# MySide Test Project
 
-Este projeto é uma aplicação de e-commerce simples construída em React e Next.js, com funcionalidades de pesquisa, filtros, página de detalhes do produto e um carrinho de compras que mantém o estado entre páginas. O projeto utiliza Context API para gerenciar o estado do carrinho e Styled Components para a estilização.
+Este é o projeto **MySide Test**, uma aplicação de e-commerce onde os usuários podem visualizar produtos, adicioná-los ao carrinho e filtrar os produtos por categoria e nome. A interface foi construída com foco em uma boa experiência de usuário, tanto para dispositivos móveis quanto para desktop.
 
 ## Funcionalidades
 
-- Exibição de uma lista de produtos com paginação.
-- Pesquisa por nome de produto.
-- Filtros de categoria.
-- Adicionar produtos ao carrinho de compras.
-- Manter estado do carrinho de compras entre páginas.
-- Página de detalhes de um produto.
-- Exibir produtos relacionados na página de detalhes.
-- Remover itens do carrinho de compras.
+- Exibir lista de produtos
+- Pesquisa por nome e filtro por categoria
+- Paginação dos produtos (limitada a 24 por página)
+- Exibição de produtos relacionados na página de detalhes do produto
+- Carrinho de compras persistente entre as páginas usando Context API
+- Remoção de produtos do carrinho
 
-## Pré-requisitos
+## Tecnologias Utilizadas
 
-- Node.js (versão 14 ou superior)
-- NPM ou Yarn
+- **React** - Biblioteca JavaScript para construir interfaces de usuário
+- **Next.js** - Framework React para renderização do lado do servidor e rotas simplificadas
+- **Styled Components** - Biblioteca para estilizar componentes de maneira dinâmica
+- **Context API** - Para gerenciar o estado global do carrinho de compras
 
 ## Instalação
 
-### Passos para rodar o projeto localmente:
+Siga estas etapas para rodar o projeto localmente:
+
+### Pré-requisitos
+
+Certifique-se de ter o **Node.js** instalado na sua máquina. Você pode baixá-lo [aqui](https://nodejs.org/).
+
+### Passo a Passo
 
 1. Clone o repositório para sua máquina local:
-
-```bash
-git clone https://github.com/seu-usuario/my-side-test.git
-
-Acesse a pasta do projeto:
-
-cd my-side-test
-
-Instale as dependências do projeto:
-Se você usa npm:
-npm install
-Se você usa yarn:
-yarn install
-
-Rodando o projeto localmente
-Com npm:
-npm run dev
-Com yarn:
-yarn dev
-
-A aplicação estará rodando localmente em http://localhost:3000.
+    ```
+    git clone https://github.com/seu-usuario/my-side-test.git
+    ```
+2. Acesse o diretório do projeto:
+    ```
+    cd my-side-test
+    ```
+3. Instale as dependências:
+    ```
+    npm install
+    ```
+4. Rode o servidor de desenvolvimento:
+    ```
+    npm run dev
+    ```
+5. Acesse http://localhost:3000 no navegador para ver o projeto em execução.
 
 Estrutura de Pastas
-/pages: Contém as páginas da aplicação, como a home (index.js) e as páginas de produto ([id].js).
-/src/app/services: Funções para lidar com a API de produtos, como busca por categoria e ID.
-/src/app/components: Contém componentes reutilizáveis, como ProductCard, NavBar, e outros.
-/styles: Contém os arquivos de estilização utilizando Styled Components.
-Tecnologias Utilizadas
-React - Biblioteca JavaScript para criar interfaces de usuário.
-Next.js - Framework para React que permite renderização do lado do servidor e a criação de rotas simples.
-Styled Components - Biblioteca para estilizar componentes com CSS-in-JS.
-Context API - Gerenciamento de estado global para o carrinho de compras.
-Como Contribuir
-Faça um fork do projeto
-Crie sua feature branch: git checkout -b minha-feature
-Commit suas mudanças: git commit -m 'Adiciona nova feature'
-Faça o push para a branch: git push origin minha-feature
-Abra um Pull Request
-Licença
-Este projeto é licenciado sob a MIT License - veja o arquivo LICENSE para mais detalhes.
+Aqui está uma visão geral da estrutura de pastas do projeto:
+
 ```
+my-side-test/
+├── public/             # Arquivos estáticos (imagens, ícones, etc.)
+├── src/
+│   ├── app/            # Contém os componentes principais da aplicação
+│   ├── components/     # Componentes reutilizáveis (ProductCard, NavBar, etc.)
+│   ├── services/       # Serviços como chamadas à API
+│   └── styles/         # Arquivos de estilização global e específicos
+├── pages/              # Páginas da aplicação (Home, Produto, Carrinho, etc.)
+│   └── products/       # Página de detalhes do produto
+├── README.md           # Este arquivo de documentação
+└── package.json        # Dependências e scripts
+```
+
+Como Usar
+Carrinho de Compras
+Ao clicar em "Adicionar ao Carrinho" em qualquer produto, o item será adicionado ao carrinho.
+O carrinho pode ser acessado clicando no ícone de carrinho no canto superior direito da tela.
+No carrinho, é possível ver todos os itens adicionados, ajustar a quantidade e remover itens.
+Filtros de Pesquisa
+A barra de pesquisa permite buscar produtos pelo nome.
+O filtro de categoria permite restringir a pesquisa a uma categoria específica.
+A pesquisa e os filtros funcionam simultaneamente.
+Estilos
+O projeto usa Styled Components para gerenciar a estilização, garantindo que os estilos sejam aplicados de maneira modular e eficiente.
