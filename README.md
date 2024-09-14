@@ -46,7 +46,7 @@ Certifique-se de ter o **Node.js** instalado na sua máquina. Você pode baixá-
     ```
 5. Acesse http://localhost:3000 no navegador para ver o projeto em execução.
 
-Estrutura de Pastas
+Estrutura de Pastas <br />
 Aqui está uma visão geral da estrutura de pastas do projeto:
 
 ```
@@ -63,14 +63,26 @@ my-side-test/
 └── package.json        # Dependências e scripts
 ```
 
-Como Usar
-Carrinho de Compras
+
+## Como Usar
+
+Carrinho de Compras <br />
+
 Ao clicar em "Adicionar ao Carrinho" em qualquer produto, o item será adicionado ao carrinho.
+
 O carrinho pode ser acessado clicando no ícone de carrinho no canto superior direito da tela.
-No carrinho, é possível ver todos os itens adicionados, ajustar a quantidade e remover itens.
-Filtros de Pesquisa
+
+No carrinho, é possível ver todos os itens adicionados, ajustar a quantidade e remover itens.<br />
+
+Filtros de Pesquisa <br />
+
 A barra de pesquisa permite buscar produtos pelo nome.
+
 O filtro de categoria permite restringir a pesquisa a uma categoria específica.
-A pesquisa e os filtros funcionam simultaneamente.
-Estilos
+
+A pesquisa e os filtros funcionam simultaneamente.<br />
+
+Estilos<br />
+
 O projeto usa Styled Components para gerenciar a estilização, garantindo que os estilos sejam aplicados de maneira modular e eficiente.
+
